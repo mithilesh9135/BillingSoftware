@@ -117,10 +117,12 @@ public class menu extends javax.swing.JFrame {
         jMenu21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu21);
 
+        jMenu23.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-mobile-payment-16.png")); // NOI18N
         jMenu23.setText("Payment");
         jMenu23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu23);
 
+        jMenu24.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-ftp-server-16.png")); // NOI18N
         jMenu24.setText("Back Up");
         jMenu24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu24);
@@ -137,6 +139,7 @@ public class menu extends javax.swing.JFrame {
         jMenu27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu27);
 
+        jMenu28.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-logout-16.png")); // NOI18N
         jMenu28.setText("Log Out");
         jMenu28.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu28);
@@ -151,9 +154,7 @@ public class menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jLabel1)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
