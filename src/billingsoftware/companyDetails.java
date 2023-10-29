@@ -222,11 +222,11 @@ public class companyDetails extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(50, 50, 50)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel9)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                            .addComponent(jLabel6)
-                                            .addGap(295, 295, 295)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel6))
+                                        .addGap(274, 274, 274))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -284,11 +284,12 @@ public class companyDetails extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel13)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel13))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
@@ -385,23 +386,18 @@ public class companyDetails extends javax.swing.JFrame {
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-settings-14.png")); // NOI18N
         jMenu1.setText("Setting");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-company-14.png")); // NOI18N
         jMenuItem1.setText("Company Details");
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-businessman-14.png")); // NOI18N
         jMenuItem2.setText("Party");
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-customers-14.png")); // NOI18N
         jMenuItem3.setText("Customer");
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-locked-user-14.png")); // NOI18N
         jMenuItem4.setText("Create User Login");
         jMenu1.add(jMenuItem4);
 
@@ -421,37 +417,30 @@ public class companyDetails extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu17.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-company-14.png")); // NOI18N
         jMenu17.setText("Master");
         jMenu17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu17);
 
-        jMenu18.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-purchase-14.png")); // NOI18N
         jMenu18.setText("Purchase");
         jMenu18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu18);
 
-        jMenu19.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-sell-stock-14.png")); // NOI18N
         jMenu19.setText("Stock");
         jMenu19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu19);
 
-        jMenu20.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-checkout-14.png")); // NOI18N
         jMenu20.setText("Sale");
         jMenu20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu20);
 
-        jMenu21.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-file-14.png")); // NOI18N
         jMenu21.setText("Record");
         jMenu21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu21);
 
-        jMenu23.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-mobile-payment-16.png")); // NOI18N
         jMenu23.setText("Payment");
         jMenu23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu23);
 
-        jMenu24.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-ftp-server-16.png")); // NOI18N
         jMenu24.setText("Back Up");
         jMenu24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu24);
@@ -468,7 +457,6 @@ public class companyDetails extends javax.swing.JFrame {
         jMenu27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu27);
 
-        jMenu28.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-logout-16.png")); // NOI18N
         jMenu28.setText("Log Out");
         jMenu28.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu28);
