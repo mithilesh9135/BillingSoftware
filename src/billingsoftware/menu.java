@@ -51,8 +51,12 @@ public class menu extends javax.swing.JFrame {
         jMenu29 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1272, 671));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\Mall-pune-1.jpg")); // NOI18N
+        jLabel1.setPreferredSize(new java.awt.Dimension(1272, 671));
+        jLabel1.setRequestFocusEnabled(false);
 
         jLabel2.setText("Product Master - F2  Purchase - F3  Stock Details - F4  Sale - F5  Purchase Record - F6  Sale Record - F7  Back Up - F8  Expense - F9  Barcode - F10 Exit - Esc");
 
@@ -154,15 +158,15 @@ public class menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 609, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
-                .addComponent(jLabel2))
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
