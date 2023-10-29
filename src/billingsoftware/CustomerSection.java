@@ -1,7 +1,7 @@
 package billingsoftware;
 import java.sql.*;
 
-
+// change kiya hai abhi
 
 
 public class CustomerSection extends javax.swing.JFrame {
@@ -39,7 +39,7 @@ public class CustomerSection extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -191,22 +191,23 @@ public class CustomerSection extends javax.swing.JFrame {
                     .addComponent(jLabel13))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField9)
+                    .addComponent(jTextField9, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
                     .addComponent(jTextField8)
                     .addComponent(jTextField7)
                     .addComponent(jTextField6)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(76, 76, 76))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel13))
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -284,23 +285,18 @@ public class CustomerSection extends javax.swing.JFrame {
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-settings-14.png")); // NOI18N
         jMenu1.setText("Setting");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-company-14.png")); // NOI18N
         jMenuItem1.setText("Company Details");
         jMenu1.add(jMenuItem1);
 
-        jMenuItem2.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-businessman-14.png")); // NOI18N
         jMenuItem2.setText("Party");
         jMenu1.add(jMenuItem2);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-customers-14.png")); // NOI18N
         jMenuItem3.setText("Customer");
         jMenu1.add(jMenuItem3);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-locked-user-14.png")); // NOI18N
         jMenuItem4.setText("Create User Login");
         jMenu1.add(jMenuItem4);
 
@@ -320,37 +316,30 @@ public class CustomerSection extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu17.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-company-14.png")); // NOI18N
         jMenu17.setText("Master");
         jMenu17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu17);
 
-        jMenu18.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-purchase-14.png")); // NOI18N
         jMenu18.setText("Purchase");
         jMenu18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu18);
 
-        jMenu19.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-sell-stock-14.png")); // NOI18N
         jMenu19.setText("Stock");
         jMenu19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu19);
 
-        jMenu20.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-checkout-14.png")); // NOI18N
         jMenu20.setText("Sale");
         jMenu20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu20);
 
-        jMenu21.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-file-14.png")); // NOI18N
         jMenu21.setText("Record");
         jMenu21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu21);
 
-        jMenu23.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-mobile-payment-16.png")); // NOI18N
         jMenu23.setText("Payment");
         jMenu23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu23);
 
-        jMenu24.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-ftp-server-16.png")); // NOI18N
         jMenu24.setText("Back Up");
         jMenu24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu24);
@@ -367,7 +356,6 @@ public class CustomerSection extends javax.swing.JFrame {
         jMenu27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu27);
 
-        jMenu28.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\icons8-logout-16.png")); // NOI18N
         jMenu28.setText("Log Out");
         jMenu28.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu28);
@@ -410,9 +398,9 @@ public class CustomerSection extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCheckBox1)
                     .addComponent(jButton1)
@@ -478,7 +466,7 @@ public class CustomerSection extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
