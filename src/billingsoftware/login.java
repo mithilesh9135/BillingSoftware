@@ -47,7 +47,7 @@ public class login extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(51, 204, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\vecteezy_3d-password-input-illustration-design_10998284_874.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\vecteezy_3d-password-input-illustration-design_10998284_874.png")); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 51, 255));
