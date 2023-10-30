@@ -54,23 +54,29 @@ public class menu extends javax.swing.JFrame {
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(1272, 671));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\Mall-pune-1.jpg")); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(1272, 671));
         jLabel1.setRequestFocusEnabled(false);
 
         jLabel2.setText("Product Master - F2  Purchase - F3  Stock Details - F4  Sale - F5  Purchase Record - F6  Sale Record - F7  Back Up - F8  Expense - F9  Barcode - F10 Exit - Esc");
 
+        jMenu1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-settings-14.png")); // NOI18N
         jMenu1.setText("Setting");
         jMenu1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-company-14.png")); // NOI18N
         jMenuItem1.setText("Company Details");
         jMenu1.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-businessman-14.png")); // NOI18N
         jMenuItem2.setText("Party");
         jMenu1.add(jMenuItem2);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-customers-14.png")); // NOI18N
         jMenuItem3.setText("Customer");
         jMenu1.add(jMenuItem3);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-locked-user-14.png")); // NOI18N
         jMenuItem4.setText("Create User Login");
         jMenu1.add(jMenuItem4);
 
@@ -90,30 +96,37 @@ public class menu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu17.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-company-14.png")); // NOI18N
         jMenu17.setText("Master");
         jMenu17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu17);
 
+        jMenu18.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-purchase-14.png")); // NOI18N
         jMenu18.setText("Purchase");
         jMenu18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu18);
 
+        jMenu19.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-sell-stock-14.png")); // NOI18N
         jMenu19.setText("Stock");
         jMenu19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu19);
 
+        jMenu20.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-checkout-14.png")); // NOI18N
         jMenu20.setText("Sale");
         jMenu20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu20);
 
+        jMenu21.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-file-14.png")); // NOI18N
         jMenu21.setText("Record");
         jMenu21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu21);
 
+        jMenu23.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-mobile-payment-16.png")); // NOI18N
         jMenu23.setText("Payment");
         jMenu23.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu23);
 
+        jMenu24.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-ftp-server-16.png")); // NOI18N
         jMenu24.setText("Back Up");
         jMenu24.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu24);
@@ -130,6 +143,7 @@ public class menu extends javax.swing.JFrame {
         jMenu27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu27);
 
+        jMenu28.setIcon(new javax.swing.ImageIcon("C:\\Users\\MITHILESH KUMAR\\Desktop\\New folder\\BillingSoftware\\src\\billingsoftware\\icons8-logout-16.png")); // NOI18N
         jMenu28.setText("Log Out");
         jMenu28.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jMenuBar1.add(jMenu28);
@@ -150,9 +164,9 @@ public class menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
-                .addGap(0, 0, 0)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 626, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
