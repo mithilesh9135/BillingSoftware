@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 public class CustomerSection extends javax.swing.JFrame {
     String  url = "jdbc:mysql://localhost:3306/garment";
     String id = "root";
-    String Pass = "Bright@2009";
+    String Pass = "Bright@2009";// Yaha par ap apna password dal dijeya bus or kuch mat kijeya ga
     Connection con = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
@@ -56,12 +56,12 @@ public class CustomerSection extends javax.swing.JFrame {
         Date = new com.toedter.calendar.JDateChooser();
         savebtn = new javax.swing.JButton();
         update = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        refreshBtn = new javax.swing.JButton();
+        closeBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         dataTable = new javax.swing.JTable();
         jLabel17 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        deleteBtn = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -277,15 +277,25 @@ public class CustomerSection extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(255, 51, 51));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Refresh");
+        refreshBtn.setBackground(new java.awt.Color(255, 51, 51));
+        refreshBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        refreshBtn.setForeground(new java.awt.Color(255, 255, 255));
+        refreshBtn.setText("Refresh");
+        refreshBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshBtnActionPerformed(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(255, 51, 51));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Close");
+        closeBtn.setBackground(new java.awt.Color(255, 51, 51));
+        closeBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        closeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        closeBtn.setText("Close");
+        closeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeBtnActionPerformed(evt);
+            }
+        });
 
         dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -304,10 +314,15 @@ public class CustomerSection extends javax.swing.JFrame {
 
         jLabel17.setText("Product Master - F2  Purchase - F3  Stock Details - F4  Sale - F5  Purchase Record - F6  Sale Record - F7  Back Up - F8  Expense - F9  Barcode - F10 Exit - Esc");
 
-        jButton5.setBackground(new java.awt.Color(255, 51, 51));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Delete");
+        deleteBtn.setBackground(new java.awt.Color(255, 51, 51));
+        deleteBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        deleteBtn.setForeground(new java.awt.Color(255, 255, 255));
+        deleteBtn.setText("Delete");
+        deleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteBtnActionPerformed(evt);
+            }
+        });
 
         jMenuBar1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -401,15 +416,15 @@ public class CustomerSection extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(421, 421, 421)
-                        .addComponent(jButton5)
+                        .addComponent(deleteBtn)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(savebtn)
                         .addGap(40, 40, 40)
                         .addComponent(update)
                         .addGap(35, 35, 35)
-                        .addComponent(jButton3)
+                        .addComponent(refreshBtn)
                         .addGap(44, 44, 44)
-                        .addComponent(jButton4))
+                        .addComponent(closeBtn))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 1255, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -430,9 +445,9 @@ public class CustomerSection extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(savebtn)
                     .addComponent(update)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5))
+                    .addComponent(refreshBtn)
+                    .addComponent(closeBtn)
+                    .addComponent(deleteBtn))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
@@ -500,6 +515,16 @@ public class CustomerSection extends javax.swing.JFrame {
            pst.setString(10, formattedDate);
            pst.executeUpdate();
             JOptionPane.showMessageDialog(this, "Successfully Added");
+            partyname.setText("");
+           partytype.setText("");
+           phone.setText("");
+           Mobile.setText("");
+           adhar.setText("");
+           pan.setText("");
+           gst.setText("");
+           address.setText("");
+           prevdues.setText("");
+           Date.setDate(null);
             showData();
         } catch (SQLException e) {
                         JOptionPane.showMessageDialog(this, "Error"+e.getMessage());
@@ -529,6 +554,44 @@ String manDate = model.getValueAt(sr, 9).toString();
             JOptionPane.showMessageDialog(null,"Error!"+ex.getMessage());
         }
     }//GEN-LAST:event_dataTableMouseClicked
+
+    private void refreshBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshBtnActionPerformed
+        // TODO add your handling code here:
+        showData();
+    }//GEN-LAST:event_refreshBtnActionPerformed
+
+    private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
+        // TODO add your handling code here:
+        new menu().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_closeBtnActionPerformed
+
+    private void deleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteBtnActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)dataTable.getModel();
+        int sr = dataTable.getSelectedRow();
+        try {
+           con = DriverManager.getConnection(url, id, Pass);
+           int id = Integer.parseInt(model.getValueAt(sr, 10).toString());
+           pst = con.prepareStatement("delete from customer where id = ?");
+           pst.setInt(1, id);
+           pst.executeUpdate();
+           JOptionPane.showMessageDialog(this,"Deleted Successfully");
+           partyname.setText("");
+           partytype.setText("");
+           phone.setText("");
+           Mobile.setText("");
+           adhar.setText("");
+           pan.setText("");
+           gst.setText("");
+           address.setText("");
+           prevdues.setText("");
+           Date.setDate(null);
+        }
+        catch(SQLException e){
+            JOptionPane.showMessageDialog(this,"Error "+e.getMessage());
+        }
+    }//GEN-LAST:event_deleteBtnActionPerformed
 
    public void showData(){
 try {
@@ -590,11 +653,10 @@ try {
     private javax.swing.JTextField Mobile;
     private javax.swing.JTextField address;
     private javax.swing.JTextField adhar;
+    private javax.swing.JButton closeBtn;
     private javax.swing.JTable dataTable;
+    private javax.swing.JButton deleteBtn;
     private javax.swing.JTextField gst;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -637,6 +699,7 @@ try {
     private javax.swing.JTextField partytype;
     private javax.swing.JTextField phone;
     private javax.swing.JTextField prevdues;
+    private javax.swing.JButton refreshBtn;
     private javax.swing.JButton savebtn;
     private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables

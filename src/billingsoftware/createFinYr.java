@@ -4,17 +4,29 @@
  */
 package billingsoftware;
 
+import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author MITHILESH KUMAR
  */
 public class createFinYr extends javax.swing.JFrame {
 
-    /**
-     * Creates new form createFinYr
-     */
+   String  url = "jdbc:mysql://localhost:3306/garment";
+    String id = "root";
+    String Pass = "Bright@2009";// Yaha par ap apna password dal dijeya bus or kuch mat kijeya ga
+    Connection con = null;
+    PreparedStatement pst = null;
+    int q = 0;
+    ResultSet rs = null;
     public createFinYr() {
         initComponents();
+        showData();
     }
 
     /**
@@ -31,17 +43,18 @@ public class createFinYr extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        startDate = new com.toedter.calendar.JDateChooser();
+        endDate = new com.toedter.calendar.JDateChooser();
+        saveBtn = new javax.swing.JButton();
+        closeBtn = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        dataTable = new javax.swing.JTable();
+        updateBtn = new javax.swing.JButton();
+        DeleteBtn = new javax.swing.JButton();
+        finYr = new javax.swing.JTextField();
+        refresh = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,42 +95,72 @@ public class createFinYr extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel4.setText("Select Fin Yr");
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Start Date");
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("End Date");
 
-        jDateChooser1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        startDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jDateChooser2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        endDate.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Save");
+        saveBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        saveBtn.setText("Save");
+        saveBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveBtnActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Close");
+        closeBtn.setBackground(new java.awt.Color(255, 0, 0));
+        closeBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        closeBtn.setForeground(new java.awt.Color(255, 255, 255));
+        closeBtn.setText("Close");
+        closeBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeBtnActionPerformed(evt);
+            }
+        });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        dataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Sl_No.", "Comp_ID", "Fin_Yr", "Title 4"
+                "Comp_ID", "Fin_Yr", "Start Date", "End Date"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        dataTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dataTableMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(dataTable);
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("Update");
+        updateBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        updateBtn.setText("Update");
+        updateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateBtnActionPerformed(evt);
+            }
+        });
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setText("Delete");
+        DeleteBtn.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        DeleteBtn.setText("Delete");
+        DeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteBtnActionPerformed(evt);
+            }
+        });
+
+        refresh.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        refresh.setText("Refresh");
+        refresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -139,20 +182,22 @@ public class createFinYr extends javax.swing.JFrame {
                                             .addComponent(jLabel6))
                                         .addGap(38, 38, 38)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                                            .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(startDate, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                                            .addComponent(endDate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(finYr)))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(saveBtn)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jButton2)))
+                                        .addComponent(closeBtn)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 416, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(467, 467, 467)
-                        .addComponent(jButton3)
+                        .addGap(377, 377, 377)
+                        .addComponent(refresh)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateBtn)
                         .addGap(38, 38, 38)
-                        .addComponent(jButton4)))
+                        .addComponent(DeleteBtn)))
                 .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
@@ -166,24 +211,25 @@ public class createFinYr extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(finYr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(startDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(endDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton2)
-                            .addComponent(jButton1)))
+                            .addComponent(closeBtn)
+                            .addComponent(saveBtn)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(updateBtn)
+                    .addComponent(DeleteBtn)
+                    .addComponent(refresh))
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -191,6 +237,137 @@ public class createFinYr extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void saveBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveBtnActionPerformed
+        // TODO add your handling code here:
+        try {
+    java.util.Date startDateValue = startDate.getDate();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String formattedStartDate = sdf.format(startDateValue);
+
+    java.util.Date endDateValue = endDate.getDate();
+    String formattedEndDate = sdf.format(endDateValue);
+
+    con = DriverManager.getConnection(url, id, Pass);
+    pst = con.prepareStatement("INSERT INTO finYear (finyr, startdate, enddate) VALUES (?, ?, ?)");
+    pst.setString(1, finYr.getText());
+    pst.setString(2, formattedStartDate);
+    pst.setString(3, formattedEndDate);
+
+    int rowsInserted = pst.executeUpdate();
+    if (rowsInserted > 0) {
+        JOptionPane.showMessageDialog(this, "Record Created Successfully");
+    } else {
+        JOptionPane.showMessageDialog(this, "No records inserted. Check your data and SQL statement.");
+    }
+} catch (SQLException e) {
+    e.printStackTrace();
+    JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+}
+
+    }//GEN-LAST:event_saveBtnActionPerformed
+
+    private void closeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeBtnActionPerformed
+        // TODO add your handling code here:
+        new menu().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_closeBtnActionPerformed
+
+    private void updateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateBtnActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)dataTable.getModel();
+        int sr = dataTable.getSelectedRow();
+        try {
+           con = DriverManager.getConnection(url, id, Pass);
+           int id = Integer.parseInt(model.getValueAt(sr, 0).toString());
+
+           java.util.Date date1 = startDate.getDate();
+            SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+            String newdate1 = sdf1.format(date1);
+            
+            java.util.Date date2 = endDate.getDate();
+            SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+            String newdate2 = sdf2.format(date2);
+            
+            pst = con.prepareStatement("update finyear set finyr = ?,startdate=?,enddate = ? where id = ?");
+            pst.setString(1, finYr.getText());
+            pst.setString(2, newdate1);
+            pst.setString(3, newdate2);
+            pst.setInt(4, id);
+            pst.executeUpdate();
+           JOptionPane.showMessageDialog(this, "Updated Added");
+           showData();
+        }catch(SQLException e){
+             JOptionPane.showMessageDialog(this, "Error"+e.getMessage());
+        }
+    }//GEN-LAST:event_updateBtnActionPerformed
+
+    private void dataTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dataTableMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) dataTable.getModel();
+int sr = dataTable.getSelectedRow();
+finYr.setText(model.getValueAt(sr, 1).toString());
+String start = model.getValueAt(sr, 2).toString();
+
+        try {
+            java.util.Date formDate = new SimpleDateFormat("yyyy-MM-dd").parse(start);
+            startDate.setDate(formDate);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null,"Error!"+ex.getMessage());
+        }
+        
+        String end = model.getValueAt(sr, 3).toString();
+
+        try {
+            java.util.Date formDate = new SimpleDateFormat("yyyy-MM-dd").parse(end);
+            endDate.setDate(formDate);
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null,"Error!"+ex.getMessage());
+        }
+    }//GEN-LAST:event_dataTableMouseClicked
+
+    private void DeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteBtnActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel)dataTable.getModel();
+        int sr = dataTable.getSelectedRow();
+        try {
+           con = DriverManager.getConnection(url, id, Pass);
+           int id = Integer.parseInt(model.getValueAt(sr, 0).toString());
+           pst = con.prepareStatement("delete from finyear where id = ?");
+           pst.setInt(1, id);
+           pst.executeUpdate();
+           JOptionPane.showMessageDialog(this,"Deleted Successfully");
+        }catch (SQLException e){
+            JOptionPane.showMessageDialog(this,"Error "+e.getMessage());
+        }
+
+    }//GEN-LAST:event_DeleteBtnActionPerformed
+
+    private void refreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshActionPerformed
+        // TODO add your handling code here:
+        showData();
+    }//GEN-LAST:event_refreshActionPerformed
+public void showData(){
+    try {
+        con = DriverManager.getConnection(url, id, Pass);
+        pst = con.prepareStatement("select * from finyear");
+        rs = pst.executeQuery();
+        ResultSetMetaData rsmd = rs.getMetaData();
+        q = rsmd.getColumnCount();
+            DefaultTableModel model = (DefaultTableModel)dataTable.getModel();
+            model.setRowCount(0);
+            while (rs.next()){
+                Vector v = new Vector();
+                for (int i = 1;i<=q;i++){
+                    v.add(rs.getObject(i));
+                
+                }
+                model.addRow(v);
+            }
+
+    } catch (Exception e) {
+        JOptionPane.showMessageDialog(null,"Error!"+e.getMessage());
+    }
+}
     /**
      * @param args the command line arguments
      */
@@ -227,13 +404,11 @@ public class createFinYr extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
+    private javax.swing.JButton DeleteBtn;
+    private javax.swing.JButton closeBtn;
+    private javax.swing.JTable dataTable;
+    private com.toedter.calendar.JDateChooser endDate;
+    private javax.swing.JTextField finYr;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -242,6 +417,9 @@ public class createFinYr extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JButton refresh;
+    private javax.swing.JButton saveBtn;
+    private com.toedter.calendar.JDateChooser startDate;
+    private javax.swing.JButton updateBtn;
     // End of variables declaration//GEN-END:variables
 }
